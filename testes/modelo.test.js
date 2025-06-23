@@ -36,8 +36,6 @@ test('Testando cadastro de respostas', () => {
   modelo.cadastrar_pergunta('Tem como responder a uma pergunta?');
   const id_pergunta = modelo.listar_perguntas()[0].id_pergunta;
   modelo.cadastrar_resposta(id_pergunta, 'Sim, tem como :)');
-  const resposta = modelo.get_respostas()[0];
-  expect(modelo.get_num_respostas).toBe(1);
-  expect(modelo.get_respostas()[0].texto).toBe('Sim, tem como :)');
-  //expect(modelo.get_respostas()[0].id_pergunta).toBe(resposta.);
+  expect(modelo.get_num_respostas(id_pergunta)).toBe(1);
+  expect(modelo.get_respostas(id_pergunta)[0].texto).toBe('Sim, tem como :)');
 });
